@@ -1,0 +1,103 @@
+# Missing Person Detection System - .gitignore
+
+# Environment Variables (NEVER commit sensitive data)
+.env
+.env.local
+.env.production
+.env.staging
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+backend/venv/
+backend/env/
+backend/.venv/
+venv/
+env/
+ENV/
+
+# Database Files
+*.db
+*.sqlite
+*.sqlite3
+backend/missing_persons.db
+backend/*.db
+
+# Upload Files (contains sensitive photos)
+backend/uploads/
+uploads/
+backend/uploads/cases/
+backend/uploads/sightings/
+
+# Node.js / React
+frontend/node_modules/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/.pnpm-debug.log*
+frontend/build/
+frontend/dist/
+
+# IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+logs/
+backend/logs/
+frontend/logs/
+
+# Temporary Files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Docker
+.dockerignore
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# pytest
+.pytest_cache/
+.coverage
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
