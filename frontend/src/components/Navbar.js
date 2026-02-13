@@ -14,50 +14,43 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <Link to="/" className="navbar-brand">
-        Missing Person Detection System
+        Missing Person Detection
       </Link>
-      
-      <ul className="navbar-nav">
-        <li>
-          <Link to="/" className="nav-link">Home</Link>
-        </li>
-        <li>
-          <Link to="/upload-sighting" className="nav-link">Report Sighting</Link>
-        </li>
-        
+
+      <div className="navbar-nav">
+        <Link to="/" className="nav-link">Home</Link>
+        <Link to="/upload-sighting" className="nav-link">Report Sighting</Link>
+
         {isAuthenticated ? (
           <>
-            <li>
-              <Link to="/create-case" className="nav-link">Create Case</Link>
-            </li>
-            <li>
-              <Link to="/my-cases" className="nav-link">My Cases</Link>
-            </li>
+            <Link to="/create-case" className="nav-link">Create Case</Link>
+            <Link to="/my-cases" className="nav-link">My Cases</Link>
             {isAdmin && (
-              <li>
-                <Link to="/admin" className="nav-link">Admin Dashboard</Link>
-              </li>
+              <Link to="/admin" className="nav-link">Admin Dashboard</Link>
             )}
-            <li>
-              <span className="nav-link">Welcome, {user?.email}</span>
-            </li>
-            <li>
-              <button onClick={handleLogout} className="nav-link" style={{background: 'none', border: 'none', cursor: 'pointer'}}>
-                Logout
-              </button>
-            </li>
+            <span className="nav-link" style={{ cursor: 'default' }}>
+              👤 {user?.email?.split('@')[0] || 'User'}
+            </span>
+            <button
+              onClick={handleLogout}
+              className="nav-link btn-danger"
+              style={{
+                background: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+                border: 'none',
+                cursor: 'pointer',
+                color: 'white'
+              }}
+            >
+              Logout
+            </button>
           </>
         ) : (
           <>
-            <li>
-              <Link to="/login" className="nav-link">Login</Link>
-            </li>
-            <li>
-              <Link to="/register" className="nav-link">Register</Link>
-            </li>
+            <Link to="/login" className="nav-link">Login</Link>
+            <Link to="/register" className="nav-link">Register</Link>
           </>
         )}
-      </ul>
+      </div>
     </nav>
   );
 };

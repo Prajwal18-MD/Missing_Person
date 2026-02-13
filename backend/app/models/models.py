@@ -35,8 +35,8 @@ class MissingPersonCase(Base):
     
     # Relationships
     created_by_user = relationship("User", back_populates="cases")
-    sightings = relationship("Sighting", back_populates="case")
     matches = relationship("Match", back_populates="case")
+    location_history = relationship("LocationHistory", back_populates="case")
     
     def set_aadhaar(self, aadhaar_number):
         """Hash and store Aadhaar number"""
@@ -87,4 +87,4 @@ class LocationHistory(Base):
     confidence_score = Column(Float)  # From the match that created this location
     
     # Relationships
-    case = relationship("MissingPersonCase")
+    case = relationship("MissingPersonCase", back_populates="location_history")
